@@ -8,18 +8,18 @@ Entry for [Warning Label for Humans: One Line, Big Laugh](https://make.fun/bount
 
 ## The label
 
-> WARNING: Human rehearses a 30-second phone call for 20 minutes, then never dials.
+> WARNING: Holding a door for a distant stranger may cause reciprocal speed-walking.
 
-One line, 81 characters. A safety warning label for every human being: twenty minutes of rehearsal for a thirty-second call, and then no call at all.
+One line, 82 characters. A safety warning label for every human being: hold a door for someone still far away, and a small act of politeness turns into a footrace nobody wanted.
 
 ## How it works
 
-`main.ts` (Node 22, standard library only) writes the label to `$MAKEFUN_OUTPUT_DIR/entry.txt`. It is deterministic — the same bytes on every run — and refuses to write a line longer than 160 characters or containing a newline.
+`main.ts` (Node 22, standard library only) writes the label to `/output/entry.txt`. It is deterministic — the same bytes on every run — and refuses to write a line longer than 160 characters or containing a newline.
 
 Run it with:
 
 ```sh
-MAKEFUN_OUTPUT_DIR=/tmp/out node main.ts
+node main.ts
 ```
 
 ## Referral
