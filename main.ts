@@ -1,28 +1,15 @@
-// Warning Label for Humans — entry program.
-//
-// Writes one single-line safety warning label for human beings to
-// $MAKEFUN_OUTPUT_DIR/entry.txt. Deterministic: the same bytes every run.
-
 import { mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
 
-const LINE =
-  "WARNING: Human rehearses a 30-second phone call for 20 minutes, then never dials.";
+const line =
+  "WARNING: Holding a door for a distant stranger may cause " +
+  "reciprocal speed-walking.";
 
-if (LINE.length === 0 || LINE.length > 160) {
-  throw new Error(`entry line must be 1-160 characters, got ${LINE.length}`);
+if (line.length > 160) {
+  throw new Error("line exceeds 160 characters");
 }
-if (LINE.includes("\n") || LINE.includes("\r")) {
-  throw new Error("entry line must be a single line");
-}
-if (LINE.trim().length === 0) {
-  throw new Error("entry line must not be only whitespace");
+if (line.includes("\n")) {
+  throw new Error("line must be a single line");
 }
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR;
-if (!outDir) {
-  throw new Error("MAKEFUN_OUTPUT_DIR is not set");
-}
-
-mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), LINE + "\n", "utf8");
+mkdirSync("/output", { recursive: true });
+writeFileSync("/output/entry.txt", line + "\n", "utf8");
